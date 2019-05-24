@@ -3,22 +3,22 @@ package com.makersy.equipment.controller.manage;
 import com.makersy.equipment.common.Const;
 import com.makersy.equipment.common.ResponseCode;
 import com.makersy.equipment.common.ServerResponse;
+import com.makersy.equipment.pojo.Dev;
 import com.makersy.equipment.pojo.User;
 import com.makersy.equipment.service.IUserService;
+import com.makersy.equipment.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by makersy on 2019
@@ -113,23 +113,34 @@ public class AdminController{
         }
     }
 
-    /**
-     * 管理员删除用户
-     *
-     * @param user
-     * @return
-     */
-    public ServerResponse deleteUser(User user) {
-        ServerResponse validResponse = checkValid(user.getUserAccount());
+    @RequestMapping(value = "show_all_user.do", method = RequestMethod.POST)
+    public void selectAllUser(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 
-        //先判断用户是否存在
-        if (!validResponse.isSuccess()) {
-            //如果用户已存在，或者用户名为空
-            return validResponse;
+        ServerResponse<List<User>> response1 = iUserService.selectAllUser();
+
+        //将对象转换为json字符串
+        List<User> userList = response1.getData();
+        String json = JsonUtil.list2string(userList);
+        try {
+            System.out.println(json);
+            response.getWriter().println(json);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
-        //用户存在，可以删除
-        userMapper.deleteByPrimaryKey(user.getUserId());
-        return ServerResponse.createBySuccess();
+    @RequestMapping(value = "delete_user.do")
+    @ResponseBody
+    public ServerResponse deleteUser(@RequestParam("userId") String userId){
+        return iUserService.deleteUser(userId);
+    }
+
+    @RequestMapping(value = "deluser.do")
+    public void deluser(HttpServletRequest request, HttpServletResponse response){
+        try {
+            request.getRequestDispatcher(Const.BASEPATH + "/admin/deleteUser.jsp").forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

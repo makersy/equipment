@@ -26,7 +26,7 @@
 
 <br>
 <div style="text-align: center; font-size: 26px;">
-    <b> <a href="<%=basePath%>manage/managedev.do">管理设备</a> | <a href="<%=basePath%>manage/adddev.do">添加设备</a> | 控制设备 </b>
+    <b> <a href="<%=basePath%>manage/managedev.do">管理设备</a> | <a href="<%=basePath%>manage/adddev.do">添加设备</a> | 控制设备 | <a href="<%=basePath%>manage/adduser.do">添加用户</a> | <a href="<%=basePath%>manage/deluser.do">删除用户</a></b>
 </div>
 
 <div style="margin:0 auto; width: 1000px;">

@@ -3,6 +3,8 @@ package com.makersy.equipment.dao;
 import com.makersy.equipment.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(Integer userId);
 
@@ -23,4 +25,6 @@ public interface UserMapper {
     void updateStateByPrimaryKey(@Param("userId") Integer userId, @Param("state") Integer state);  //改变用户登录状态
 
     Integer checkOnline(@Param("userId") int userId);
+
+    List<User> selectAllUser();
 }

@@ -4,6 +4,7 @@ import com.makersy.equipment.common.Const;
 import com.makersy.equipment.common.ResponseCode;
 import com.makersy.equipment.common.ServerResponse;
 import com.makersy.equipment.dao.UserMapper;
+import com.makersy.equipment.pojo.Dev;
 import com.makersy.equipment.pojo.User;
 import com.makersy.equipment.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +12,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * Created by makersy on 2019
@@ -164,5 +167,28 @@ public class UserServiceImpl implements IUserService {
         return ServerResponse.createBySuccessMessage("添加成功");
     }
 
+    /**
+     * 管理员删除用户
+     *
+     * @param
+     * @return
+     */
+    public ServerResponse deleteUser(String userId) {
+        ServerResponse validResponse = checkValid(userId);
 
+        //先判断用户是否存在
+        if (!validResponse.isSuccess()) {
+            //如果用户已存在，或者用户名为空
+            return validResponse;
+        }
+        //用户存在，可以删除
+        userMapper.deleteByPrimaryKey(Integer.valueOf(userId));
+        return ServerResponse.createBySuccessMessage("删除成功");
+    }
+
+    @Override
+    public ServerResponse<List<User>> selectAllUser() {
+        List<User> userList = userMapper.selectAllUser();
+        return ServerResponse.createBySuccess("获取所有用户信息成功", userList);
+    }
 }

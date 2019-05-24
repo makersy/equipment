@@ -26,7 +26,7 @@
 </div>
 
 <div style="text-align: center; font-size: 26px;">
-    <b>管理设备 | <a href="<%=basePath%>manage/adddev.do">添加设备</a> | <a href="<%=basePath%>manage/controldev.do">控制设备</a> | <a href="<%=basePath%>manage/adduser.do">添加用户</a></b>
+    <b><a href="<%=basePath%>manage/adddev.do">管理设备</a> | <a href="<%=basePath%>manage/adddev.do">添加设备</a> | <a href="<%=basePath%>manage/controldev.do">控制设备</a> | <a href="<%=basePath%>manage/adduser.do">添加用户</a> | 删除用户</b>
 </div>
 
 <div style="margin:0 auto; width: 1000px;">
@@ -36,7 +36,6 @@
         <tr>
             <th>用户id</th>
             <th>用户名</th>
-            <th>用户状态</th>
         </tr>
         </thead>
         <tbody id="infor">
@@ -52,16 +51,15 @@
     $(function () {
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/show_all_dev.do",
+            "url" : "/equipment/manage/show_all_user.do",
             "data" : "",
             "dataType" : "json",
             "success" : function(json){
                 $("#infor tr").remove();
                 for( var i=0; i<json.length; i++ ){
-                    var dMac = json[i].devMac;
-                    $("#infor").append("<tr id='" + dMac +"'><td>" + json[i].devId + "</td><td>" + json[i].devMac + "</td><td>"
-                        + json[i].devIp + "</td><td><button id='updateDev' onclick='updateClick(this)' value='" + dMac +
-                        "'>修改</button> &nbsp;<button id='delDev' onclick='delClick(this)' value='" + dMac + "'>删除</button ></td></tr>");
+                    var userId = json[i].userId;
+                    $("#infor").append("<tr id='" + userId +"'><td>" + json[i].userId + "</td><td>" + json[i].userAccount +
+                        "</td><td><button id='delDev' onclick='delClick(this)' value='" + userId + "'>删除</button ></td></tr>");
                 }
             }
 
@@ -71,26 +69,21 @@
 
 
     function delClick(obj) {
-        var devMac = obj.value;
-        console.log("触发删除按钮事件, value=" + devMac);
+        var userId = obj.value;
+        console.log("触发删除按钮事件, value=" + userId);
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/delete_dev.do",
-            "data" : "devMac="+devMac,
+            "url" : "/equipment/manage/delete_user.do",
+            "data" : "userId="+userId,
             "dataType": "json",
             "success":function (json) {
                 //在页面中删除此元素
-                alert(json.data);
-                $("#infor tr[id='"+ devMac +"']").remove();
+                alert(json.msg);
+                $("#infor tr[id='"+ userId +"']").remove();
             }
         });
     }
 
-    function updateClick(obj) {
-        var devMac = obj.value;
-        console.log("触发更新按钮事件, value=" + devMac);
-        window.location.href = "updatedev.do?devMac=" + devMac;
-    }
 </script>
 </body>
 </html>
