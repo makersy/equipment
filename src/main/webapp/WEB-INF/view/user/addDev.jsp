@@ -75,7 +75,7 @@
     function submit(dev) {
         $.ajax({
             "type": "post",
-            "url": "/equipment/manage/add_dev.do",
+            "url": "/manage/add_dev.do",
             "contentType": "application/json",
             "data": JSON.stringify(dev),
             "dataType": "json",

@@ -54,7 +54,7 @@
     $(function () {
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/show_all_dev.do",
+            "url" : "/manage/show_all_dev.do",
             "data" : "",
             "dataType" : "json",
             "success" : function(json){
@@ -77,7 +77,7 @@
         console.log("触发删除按钮事件, value=" + devMac);
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/delete_dev.do",
+            "url" : "/manage/delete_dev.do",
             "data" : "devMac="+devMac,
             "dataType": "json",
             "success":function (json) {

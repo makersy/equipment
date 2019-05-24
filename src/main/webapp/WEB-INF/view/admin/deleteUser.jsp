@@ -51,7 +51,7 @@
     $(function () {
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/show_all_user.do",
+            "url" : "/manage/show_all_user.do",
             "data" : "",
             "dataType" : "json",
             "success" : function(json){
@@ -73,7 +73,7 @@
         console.log("触发删除按钮事件, value=" + userId);
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/delete_user.do",
+            "url" : "/manage/delete_user.do",
             "data" : "userId="+userId,
             "dataType": "json",
             "success":function (json) {

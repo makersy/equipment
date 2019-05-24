@@ -47,7 +47,7 @@
         console.log("进入更新页面，value=" + devMac);
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/get_dev_infor.do",
+            "url" : "/manage/get_dev_infor.do",
             "data" : {"devMac": devMac},
             "dataType" : "json",
             "success" : function(json){
@@ -83,7 +83,7 @@
     function submit(dev) {
         $.ajax({
             "type": "post",
-            "url": "/equipment/manage/update_dev.do",
+            "url": "/manage/update_dev.do",
             "contentType": "application/json",
             "data": JSON.stringify(dev),
             "dataType": "json",

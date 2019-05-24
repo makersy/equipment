@@ -52,7 +52,7 @@
     $(function () {
         $.ajax({
             "type": "post",
-            "url" : "/equipment/manage/show_all_dev.do",
+            "url" : "/manage/show_all_dev.do",
             "data" : "",
             "dataType" : "json",
             "success" : function(json){

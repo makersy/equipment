@@ -69,7 +69,7 @@ public class AuthorityInterceptor implements HandlerInterceptor{
                 // FORBIDDEN，forbidden。也就是禁止、403
                 response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             } else {
-//            response.sendRedirect("/equipment/index.jsp?state=2");
+//            response.sendRedirect("/index.jsp?state=2");
                 //转发到登录页面
                 request.getRequestDispatcher("/index.jsp?state=2").forward(request, response);
                 return false;

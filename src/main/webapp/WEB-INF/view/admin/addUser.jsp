@@ -72,7 +72,7 @@
     function submit(user) {
         $.ajax({
             "type": "post",
-            "url": "/equipment/manage/add_user.do",
+            "url": "/manage/add_user.do",
             "contentType": "application/json",
             "data": JSON.stringify(user),
             "dataType": "json",
