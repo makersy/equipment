@@ -53,7 +53,7 @@ public class UserController {
             LoginCache.getInstance().setSessionBySessionId(session.getId(), session);
 
             try {
-                httpServletRequest.getRequestDispatcher(Const.BASEPATH + "/user/controlDev.jsp").forward(httpServletRequest, httpServletResponse);
+                httpServletRequest.getRequestDispatcher(Const.BASEPATH + "/user/userPage.jsp").forward(httpServletRequest, httpServletResponse);
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
