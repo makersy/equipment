@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.makersy.equipment.dao.DevMapper" >
+  <resultMap id="BaseResultMap" type="com.makersy.equipment.pojo.Dev" >
+    <constructor >
+      <idArg column="dev_mac" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="dev_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="dev_ip" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    dev_mac, dev_id, dev_ip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from dev_info
+    where dev_mac = #{devMac,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from dev_info
+    where dev_mac = #{devMac,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.makersy.equipment.pojo.Dev" >
+    insert into dev_info (dev_mac, dev_id, dev_ip
+      )
+    values (#{devMac,jdbcType=VARCHAR}, #{devId,jdbcType=INTEGER}, #{devIp,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.makersy.equipment.pojo.Dev" >
+    insert into dev_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="devMac != null" >
+        dev_mac,
+      </if>
+      <if test="devId != null" >
+        dev_id,
+      </if>
+      <if test="devIp != null" >
+        dev_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="devMac != null" >
+        #{devMac,jdbcType=VARCHAR},
+      </if>
+      <if test="devId != null" >
+        #{devId,jdbcType=INTEGER},
+      </if>
+      <if test="devIp != null" >
+        #{devIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.makersy.equipment.pojo.Dev" >
+    update dev_info
+    <set >
+      <if test="devId != null" >
+        dev_id = #{devId,jdbcType=INTEGER},
+      </if>
+      <if test="devIp != null" >
+        dev_ip = #{devIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dev_mac = #{devMac,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.makersy.equipment.pojo.Dev" >
+    update dev_info
+    set dev_id = #{devId,jdbcType=INTEGER},
+      dev_ip = #{devIp,jdbcType=VARCHAR}
+    where dev_mac = #{devMac,jdbcType=VARCHAR}
+  </update>
+
+  <select id="checkMac" parameterType="string" resultType="int">
+    select count(1)
+    from dev_info
+    where dev_mac = #{mac}
+  </select>
+
+  <select id="selectAllDev" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from dev_info
+    order by dev_id
+  </select>
+</mapper>
