@@ -20,7 +20,7 @@
 <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 <span style="text-align: right; float: right;">
 
-    NodeMCU远程控制系统 &nbsp;<span style="font-size:12px">您好，${sessionScope.currentUser.userAccount } <a href="<%=basePath%>/user/logout.do" id="exit">登出</a></span>
+    NodeMCU远程控制系统 &nbsp;<span style="font-size:12px">您好，${sessionScope.currentUser.userAccount } <a href="<%=basePath%>">返回登录页面</a> | <a href="<%=basePath%>/user/logout.do" id="exit">登出</a></span>
 
 </span>
 </body>

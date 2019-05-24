@@ -54,7 +54,7 @@
 <script type="text/javascript" src="<%=basePath%>/js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
     var state = -1;
-    state = ${requestScope.state };
+    state = <%=request.getParameter("state")%>;
     if( state == 0 ){
         alert("密码错误");
     } else if (state == 1) {
