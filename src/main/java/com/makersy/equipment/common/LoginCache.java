@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 /**
  * Created by makersy on 2019
+ *
+ * 登录信息缓存。单例
  */
 
 public class LoginCache {

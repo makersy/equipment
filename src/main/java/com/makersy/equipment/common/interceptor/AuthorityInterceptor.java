@@ -90,7 +90,7 @@ public class AuthorityInterceptor implements HandlerInterceptor{
 //                    LoginCache.getInstance().setSessionIdByUsername(user.getUserAccount(), session.getId());
 //                    LoginCache.getInstance().setSessionBySessionId(session.getId(), session);
                     session.invalidate();
-                    request.getRequestDispatcher("/index.jsp?state=2").forward(request, response);
+//                    request.getRequestDispatcher("/index.jsp?state=2").forward(request, response);
                 } else {
                     if (request.getRequestURI().contains("deluser") || request.getRequestURI().contains("adduser")) {
                         if (user.getUserPriority() != Const.Priority.ADMIN) {

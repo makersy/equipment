@@ -70,6 +70,7 @@ public class UserController {
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
+//        return response;
     }
 
     //用户登出
