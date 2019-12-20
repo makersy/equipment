@@ -8,5 +8,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+"47.101.181.184"+":"+request.getServerPort()+path+"/";
+    String basePath = request.getScheme()+"://"+"47.101.181.184"+path+"/";
 %>
