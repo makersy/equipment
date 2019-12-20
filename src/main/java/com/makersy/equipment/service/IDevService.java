@@ -20,7 +20,7 @@ public interface IDevService {
 
     ServerResponse<List<Dev>> selectAllDev();
 
-    ServerResponse<Dev> getDevInfor(String devMac);
+    ServerResponse<Dev> getDevInfo(String devMac);
 
 
 }

@@ -64,7 +64,7 @@ public class DevController {
      */
     @RequestMapping(value = "get_dev_infor.do")
     public void showDevByMac(HttpServletResponse httpServletResponse, @RequestParam("devMac") String devMac) {
-        ServerResponse<Dev> response = iDevService.getDevInfor(devMac);
+        ServerResponse<Dev> response = iDevService.getDevInfo(devMac);
         String json = null;
         if (response.isSuccess()) {
             Dev dev = response.getData();

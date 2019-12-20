@@ -7,11 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+"47.101.181.184"
-            +path+"/";
-%>
+<%@include file="../static/basePath.jsp" %>
 
 <html>
 <head>

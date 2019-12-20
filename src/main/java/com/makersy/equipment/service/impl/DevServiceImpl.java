@@ -115,7 +115,8 @@ public class DevServiceImpl implements IDevService {
      * @param devMac
      * @return
      */
-    public ServerResponse<Dev> getDevInfor(String devMac) {
+    @Override
+    public ServerResponse<Dev> getDevInfo(String devMac) {
         Dev dev = devMapper.selectByPrimaryKey(devMac);
         if (dev != null) {
             return ServerResponse.createBySuccess("获取该设备信息成功", dev);

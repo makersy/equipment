@@ -65,6 +65,7 @@ public class AdminController{
                 request.removeAttribute("state");
                 try {
                     request.getRequestDispatcher(Const.BASEPATH + "/admin/manageDev.jsp").forward(request, httpServletResponse);
+                    return;
                 } catch (ServletException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

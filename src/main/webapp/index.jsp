@@ -1,11 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" %>
 
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+"47.101.181.184"
-            +path+"/";
-%>
+<%@include file="WEB-INF/view/static/basePath.jsp" %>
 
 <html>
 
@@ -14,12 +9,13 @@
 <h2>Hello World! </h2>
 <div style="text-align: center">
 
-    <h2>用户登录 | <a href="<%=basePath%>user/registforward.do">用户注册</a> | <a href="<%=basePath%>manage/adminlogin.do">管理员登录</a></h2>
+    <h2>用户登录 | <a href="<%=basePath%>user/registforward.do">用户注册</a> | <a
+            href="<%=basePath%>manage/adminlogin.do">管理员登录</a></h2>
     <br>
     <form action="${pageContext.request.contextPath}/user/login.do" method="post">
         <table style="margin: 0 auto;">
             <tr>
-                <td>用户名： </td>
+                <td>用户名：</td>
                 <td>
                     <input type="text" name="username">
                 </td>
@@ -46,12 +42,12 @@
 <script type="text/javascript">
     var state = -1;
     state = <%=request.getParameter("state")%>;
-    if( state == 0 ){
+    if (state == 0) {
         alert("密码错误");
-    }else if (state == 1) {
+    } else if (state == 1) {
         alert("不存在此用户");
-    }else if (state == 2) {
-        alert("用户未登录，或者异地登录");
+    } else if (state == 2) {
+        alert("用户未登录，或不是管理员");
     }
     <%request.removeAttribute("state");%>
 

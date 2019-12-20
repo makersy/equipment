@@ -54,6 +54,7 @@ public class UserController {
 
             try {
                 httpServletRequest.getRequestDispatcher(Const.BASEPATH + "/user/userPage.jsp").forward(httpServletRequest, httpServletResponse);
+                return;
             } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
@@ -102,6 +103,7 @@ public class UserController {
             httpServletResponse.getWriter().print("注册成功");
             try {
                 request.getRequestDispatcher("index.jsp").forward(request, httpServletResponse);
+                return;
             } catch (ServletException e) {
                 e.printStackTrace();
             } catch (IOException e) {

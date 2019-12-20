@@ -6,12 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+"47.101.181.184"
-            +path+"/";
-%>
 
+<%@include file="../static/basePath.jsp" %>
 <html>
 <head>
     <title>添加用户</title>
@@ -25,7 +21,8 @@
 </div>
 
 <div style="text-align: center; font-size: 26px;">
-    <b> <a href="<%=basePath%>manage/managedev.do">管理设备</a> | 添加设备 | <a href="<%=basePath%>manage/controldev.do">控制设备</a> | 添加用户 | <a href="<%=basePath%>manage/deluser.do">删除用户</a></b>
+    <b> <a href="<%=basePath%>manage/managedev.do">管理设备</a> | 添加设备 | <a
+            href="<%=basePath%>manage/controldev.do">控制设备</a> | 添加用户 | <a href="<%=basePath%>manage/deluser.do">删除用户</a></b>
 </div>
 
 <br>
@@ -35,12 +32,12 @@
     <table width="1000px" style="text-align: center">
         <tr>
             <td>
-                用户名：<input type="text" id="username" />
+                用户名：<input type="text" id="username"/>
             </td>
         </tr>
         <tr>
             <td>
-                密码：<input type="password" id="pwd" />
+                密码：<input type="password" id="pwd"/>
             </td>
         </tr>
         <tr style="text-align: right">
@@ -57,8 +54,8 @@
     function addClick() {
         //提交按钮点击事件
         var user = {
-            userPassword : $("#pwd").val(),
-            userAccount : $("#username").val()
+            userPassword: $("#pwd").val(),
+            userAccount: $("#username").val()
         };
         if (user.userAccount.trim().length !== 0 || user.userPassword.trim().length !== 0) {
             //保证有一个不为空
