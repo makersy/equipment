@@ -6,7 +6,6 @@
 
 <body>
 
-<h2>Hello World! </h2>
 <div style="text-align: center">
 
     <h2>用户登录 | <a href="<%=basePath%>user/registforward.do">用户注册</a> | <a
