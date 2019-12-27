@@ -1,0 +1,43 @@
+body{
+    background-color: white;
+}
+
+/*input, textarea{
+    width: 500px;
+    height: 40px;
+    margin: 1px auto;
+    font-size: 17px;
+    background: none;
+    color: black;
+    padding-left: 10px;
+    font-family: "微软雅黑";
+}*/
+
+
+/*首页及其他页的输入框*/
+input, textarea{
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 14px 14px;
+    width: 620px;
+    font-size: 24px;
+    color: #404040;
+    font-family: "Microsoft soft";
+}
+
+button{
+    background: #000000;
+    color: white;
+    border: none;
+    width: 100px;
+    height: 40px;
+    display: block;
+    margin: 10px auto;
+    font-family: "微软雅黑";
+    font-size: 13px;
+}
+button:hover{
+    background: lightblue;
+    border: 2px solid #000000;
+}

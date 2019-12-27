@@ -9,4 +9,5 @@
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+"47.101.181.184"+path+"/";
+//    String basePath = request.getScheme()+"://"+"localhost:8080"+path+"/";
 %>

@@ -16,10 +16,10 @@
 
 <br>
 
-<div style="height: 30px;">
-<span style="float: right;">
-    <iframe src="<%=basePath%>template/top.jsp" height="30px" frameborder="0" width="500px" scrolling="no"></iframe>
-</span>
+<div style="height: 50px;">
+
+    <iframe src="<%=basePath%>template/top.jsp" height="50px" frameborder="0" width="100%" scrolling="no"></iframe>
+
 </div>
 
 <div style="text-align: center; font-size: 26px;">

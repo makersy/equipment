@@ -1,22 +1,35 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8" %>
 
-<%@include file="WEB-INF/view/static/basePath.jsp" %>
+<%@include file="/WEB-INF/view/static/basePath.jsp" %>
 
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>NodeMCU远程控制系统</title>
+    <%--<link rel="stylesheet" type="text/css" href="main.css"/>--%>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
+</head>
 
 <body>
 
+<div class="header" style="text-align: center;">
+    <h1>NodeMCU远程控制系统</h1>
+</div>
+
 <div style="text-align: center">
 
-    <h2>用户登录 | <a href="<%=basePath%>user/registforward.do">用户注册</a> | <a
-            href="<%=basePath%>manage/adminlogin.do">管理员登录</a></h2>
+    <div>
+        <span style="text-align: center;">用户登录 | <a href="<%=basePath%>user/registforward.do">用户注册</a> | <a href="<%=basePath%>manage/adminlogin.do">管理员登录</a>
+        </span>
+    </div>
+
     <br>
     <form action="${pageContext.request.contextPath}/user/login.do" method="post">
-        <table style="margin: 0 auto;">
+        <table style="margin: 0 auto; font-size: larger;">
             <tr>
                 <td>用户名：</td>
                 <td>
-                    <input type="text" name="username">
+                    <input type="text" name="username"/>
                 </td>
             </tr>
             <tr>
@@ -25,9 +38,11 @@
                     <input type="password" name="password">
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="登录"/>
+            <!-- 提交按钮 -->
+            <tr style="text-align: right;">
+                <td></td>
+                <td >
+                    <button type="submit" value="登录">登录</button>
                 </td>
             </tr>
         </table>
