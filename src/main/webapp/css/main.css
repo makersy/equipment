@@ -23,7 +23,7 @@ input, textarea{
     border: 1px solid #ccc;
     border-radius: 3px;
     padding: 14px 14px;
-    width: 620px;
+    width: 420px;
     font-size: 24px;
     color: #404040;
     font-family: "Microsoft soft";
@@ -34,7 +34,7 @@ input, textarea{
     background: #000000;
     color: white;
     border: none;
-    width: 100px;
+    width: 150px;
     height: 40px;
     display: block;
     margin: 10px auto;

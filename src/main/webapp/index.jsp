@@ -41,7 +41,7 @@
             <!-- 提交按钮 -->
             <tr style="text-align: right;">
                 <td></td>
-                <td >
+                <td style="float: right;">
                     <button type="submit" value="登录">登录</button>
                 </td>
             </tr>
