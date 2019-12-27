@@ -11,7 +11,8 @@
 
 <html>
 <head>
-    <title>Update Dev</title>
+    <title>更新设备信息</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 <body>
 <h2>更新设备信息</h2>

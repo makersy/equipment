@@ -10,7 +10,8 @@
 <%@include file="../static/basePath.jsp" %>
 <html>
 <head>
-    <title>Update Dev</title>
+    <title>管理设备</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 <body>
 

@@ -9,7 +9,8 @@
 <%@include file="../static/basePath.jsp" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>删除用户</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 <body>
 

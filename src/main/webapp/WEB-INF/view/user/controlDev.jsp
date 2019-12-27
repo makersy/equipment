@@ -10,7 +10,8 @@
 
 <html>
 <head>
-    <title>控制页面</title>
+    <title>控制设备</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 <body>
 

@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>添加设备</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 <body>
 

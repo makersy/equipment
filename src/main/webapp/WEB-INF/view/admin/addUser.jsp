@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>添加用户</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 <body>
 

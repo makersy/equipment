@@ -11,12 +11,12 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
+
 <body>
 <div style="height: 50px;">
-
     <iframe src="<%=basePath%>template/top.jsp" height="50px" frameborder="0" width="100%" scrolling="no"></iframe>
-
 </div>
 
 <div style="text-align: center; font-size: 26px;">

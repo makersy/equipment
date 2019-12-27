@@ -12,11 +12,11 @@
 
 <body>
 
-<div class="header" style="text-align: center;">
-    <h1>NodeMCU远程控制系统</h1>
+<div class="header" style="text-align: center; height: 100px;">
+    <span style="line-height: 100px; font-size: 30px; font-weight: bold;">NodeMCU远程控制系统</span>
 </div>
 
-<div style="text-align: center">
+<div class="index" style="text-align: center">
 
     <div>
         <span style="text-align: center;">用户登录 | <a href="<%=basePath%>user/registforward.do">用户注册</a> | <a href="<%=basePath%>manage/adminlogin.do">管理员登录</a>

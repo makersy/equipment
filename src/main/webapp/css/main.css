@@ -1,5 +1,8 @@
+/*页面*/
 body{
-    background-color: white;
+    /*background-color: white;*/
+    background-image: url(image/checkerboard-cross.png);
+    background-size: auto;
 }
 
 /*input, textarea{
@@ -26,7 +29,8 @@ input, textarea{
     font-family: "Microsoft soft";
 }
 
-button{
+/*按钮*/
+.index button{
     background: #000000;
     color: white;
     border: none;
@@ -37,7 +41,7 @@ button{
     font-family: "微软雅黑";
     font-size: 13px;
 }
-button:hover{
+.index button:hover{
     background: lightblue;
     border: 2px solid #000000;
 }

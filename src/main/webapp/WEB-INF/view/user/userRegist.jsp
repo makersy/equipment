@@ -12,9 +12,10 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 <body>
-<h2>用户注册页面</h2>
+<h2>用户注册</h2>
 <div>
     <form action="${pageContext.request.contextPath}/user/regist.do">
         <table>
