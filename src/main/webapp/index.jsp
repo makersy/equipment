@@ -22,7 +22,6 @@
         <span style="text-align: center;">用户登录 | <a href="<%=basePath%>user/registforward.do">用户注册</a> | <a href="<%=basePath%>manage/adminlogin.do">管理员登录</a>
         </span>
     </div>
-
     <br>
     <form action="${pageContext.request.contextPath}/user/login.do" method="post">
         <table style="margin: 0 auto; font-size: larger;">

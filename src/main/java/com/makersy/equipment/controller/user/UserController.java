@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -63,9 +65,11 @@ public class UserController {
                 //密码错误
                 state = 0;
             } else if (response.getStatus() == ResponseCode.NOT_EXIST.getCode()) {
+                //用户名不存在
                 state = 1;
             }
         }
+        //登录失败，转发到主页面，附上状态码
         try {
             httpServletRequest.getRequestDispatcher("/index.jsp?state="+state).forward(httpServletRequest, httpServletResponse);
         } catch (ServletException | IOException e) {
@@ -83,6 +87,11 @@ public class UserController {
         session.invalidate();
     }
 
+    /**
+     * 转发接口，将主页面转发至注册页面
+     * @param request
+     * @param response
+     */
     @RequestMapping("registforward.do")
     public void loginForward(HttpServletRequest request, HttpServletResponse response){
         try {
@@ -94,28 +103,35 @@ public class UserController {
         }
     }
 
-    //用户注册
-    @RequestMapping("regist.do")
+    /**
+     * 用户注册接口，只允许post方式
+     * @param username
+     * @param password
+     * @param request
+     * @param httpServletResponse
+     * @throws IOException
+     */
+    @RequestMapping(value = "regist.do", method = RequestMethod.POST)
     public void regist(@Param("username") String username, @Param("password")String password, HttpServletRequest request, HttpServletResponse httpServletResponse) throws IOException {
         ServerResponse response = iUserService.regist(username, password);
         if (response.isSuccess()) {
-            //注册成功,返回登录页面
-            httpServletResponse.getWriter().print("注册成功");
+            //注册成功，当前页面弹框提示，并重定向至登录页面
+
             try {
-                request.getRequestDispatcher("index.jsp").forward(request, httpServletResponse);
+//                httpServletResponse.sendRedirect(request.getContextPath() + "/index.jsp");
+                request.setAttribute("flag", 1);
+                request.getRequestDispatcher(Const.BASEPATH + "/user/userRegist.jsp").forward(request, httpServletResponse);
                 return;
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (IOException | ServletException e) {
                 e.printStackTrace();
             }
         }
+
+        //注册失败，设置状态码，向前端提示信息
         request.setAttribute("flag", 0);
         try {
             request.getRequestDispatcher(Const.BASEPATH + "/user/userRegist.jsp").forward(request, httpServletResponse);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
