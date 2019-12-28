@@ -24,9 +24,9 @@
 
 <br>
 
-<div>
+<div class="adminlogin">
     <form action="${pageContext.request.contextPath}/manage/login.do" method="post">
-        <table style="text-align: center; margin: 0 auto;">
+        <table style="text-align: center; margin: 0 auto; font-size: larger">
             <tr>
                 <td>用户名： </td>
                 <td>
@@ -40,8 +40,9 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <input type="submit" value="登录" />
+                <td></td>
+                <td style="float: right;">
+                    <button type="submit" value="登录">登录</button>
                 </td>
             </tr>
         </table>

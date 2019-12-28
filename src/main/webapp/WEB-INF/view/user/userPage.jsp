@@ -10,7 +10,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>NodeMCU远程控制系统</title>
     <link rel="stylesheet" type="text/css" href="${path}/css/main.css"/>
 </head>
 

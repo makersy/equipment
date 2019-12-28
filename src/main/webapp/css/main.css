@@ -17,7 +17,7 @@ body{
 }*/
 
 
-/*首页及其他页的输入框*/
+/*输入框*/
 input, textarea{
     outline-style: none ;
     border: 1px solid #ccc;
@@ -29,7 +29,7 @@ input, textarea{
     font-family: "Microsoft soft";
 }
 
-/*按钮*/
+/*首页*/
 .index button{
     background: #000000;
     color: white;
@@ -46,6 +46,7 @@ input, textarea{
     border: 2px solid #000000;
 }
 
+/*注册页*/
 .regist button{
     background: #000000;
     color: white;
@@ -58,6 +59,23 @@ input, textarea{
     font-size: 13px;
 }
 .regist button:hover{
+    background: lightblue;
+    border: 2px solid #000000;
+}
+
+/*管理员登录页*/
+.adminlogin button{
+    background: #000000;
+    color: white;
+    border: none;
+    width: 150px;
+    height: 40px;
+    display: block;
+    margin: 10px auto;
+    font-family: "微软雅黑";
+    font-size: 13px;
+}
+.adminlogin button:hover{
     background: lightblue;
     border: 2px solid #000000;
 }
