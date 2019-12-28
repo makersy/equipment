@@ -30,7 +30,7 @@ input, textarea{
 }
 
 /*按钮*/
-{.index, .regist} button{
+.index button{
     background: #000000;
     color: white;
     border: none;
@@ -41,7 +41,23 @@ input, textarea{
     font-family: "微软雅黑";
     font-size: 13px;
 }
-{.index, .regist} button:hover{
+.index button:hover{
+    background: lightblue;
+    border: 2px solid #000000;
+}
+
+.regist button{
+    background: #000000;
+    color: white;
+    border: none;
+    width: 150px;
+    height: 40px;
+    display: block;
+    margin: 10px auto;
+    font-family: "微软雅黑";
+    font-size: 13px;
+}
+.regist button:hover{
     background: lightblue;
     border: 2px solid #000000;
 }
