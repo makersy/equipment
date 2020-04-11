@@ -21,7 +21,7 @@ import java.util.Map;
 @Controller
 public class MonitorController {
 
-    @RequestMapping("/lbs")
+    @RequestMapping("/lbs.do")
     @ResponseBody
     public String forwardToLBSApi(@Param("ie") String ie, @Param("wd") String wd) {
 
