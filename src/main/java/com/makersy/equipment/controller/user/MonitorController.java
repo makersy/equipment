@@ -35,6 +35,7 @@ public class MonitorController {
 
         params.put("lac", lac);
         params.put("ci", ci);
+        params.put("output", "json");
 
         HttpHeaders headers = new HttpHeaders();
         RestTemplate template = new RestTemplate();
