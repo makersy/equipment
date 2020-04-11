@@ -27,7 +27,7 @@ public class MonitorController {
     @ResponseBody
     public String forwardToLBSApi(@Param("ie") String ie, @Param("wd") String wd) {
 
-        String url = "https://www.baidu.com/s";
+        String url = "http://www.baidu.com/s";
         Map<String, String> params = new HashMap<>();
 
         params.put("ie", ie);
