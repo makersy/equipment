@@ -20,13 +20,14 @@ import java.util.Map;
  */
 
 @Controller
+@Slf4j
 public class MonitorController {
 
     @RequestMapping("/lbs.do")
     @ResponseBody
     public String forwardToLBSApi(@Param("ie") String ie, @Param("wd") String wd) {
 
-        String url = "www.baidu.com/s";
+        String url = "https://www.baidu.com/s";
         Map<String, String> params = new HashMap<>();
 
         params.put("ie", ie);
