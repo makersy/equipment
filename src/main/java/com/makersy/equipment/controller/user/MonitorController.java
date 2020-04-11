@@ -37,10 +37,13 @@ public class MonitorController {
         params.put("ci", ci);
         params.put("output", "json");
 
+        log.info(params.toString());
+
         HttpHeaders headers = new HttpHeaders();
         RestTemplate template = new RestTemplate();
 
         ResponseEntity<String> response = template.exchange(url, HttpMethod.GET, new HttpEntity<String>(headers), String.class, params);
+
         return response.getBody();
     }
 }
