@@ -25,13 +25,13 @@ public class MonitorController {
 
     @RequestMapping("/lbs.do")
     @ResponseBody
-    public String forwardToLBSApi(@Param("lac") String lac, @Param("ci") String ci) {
+    public String forwardToLBSApi(@Param("mcc") String mcc, @Param("mnc") String mnc, @Param("lac") String lac, @Param("ci") String ci) {
 
         String url = "http://api.cellocation.com:81/cell/";
         Map<String, String> params = new HashMap<>();
 
-        params.put("mcc", "460");
-        params.put("mnc", "1");
+        params.put("mcc", mcc);
+        params.put("mnc", mnc);
 
         params.put("lac", lac);
         params.put("ci", ci);
