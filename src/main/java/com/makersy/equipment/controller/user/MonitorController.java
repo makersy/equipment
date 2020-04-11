@@ -1,5 +1,6 @@
 package com.makersy.equipment.controller.user;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -34,7 +35,7 @@ public class MonitorController {
         HttpHeaders headers = new HttpHeaders();
         RestTemplate template = new RestTemplate();
 
-        ResponseEntity<String> response = template.exchange(url, HttpMethod.GET, new HttpEntity<>(params), String.class, params);
+        ResponseEntity<String> response = template.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), String.class, params);
         return response.getBody();
     }
 }
