@@ -34,6 +34,7 @@ public class UserServiceImpl implements IUserService {
      * @return
      */
 
+    @Override
     public ServerResponse<User> login(String username, String password) {
         int result = userMapper.checkUsername(username);
         if (result == 0) {
@@ -76,6 +77,7 @@ public class UserServiceImpl implements IUserService {
      * @param userId
      * @return
      */
+    @Override
     public ServerResponse logout(int userId) {
         userMapper.updateStateByPrimaryKey(userId, Const.State.OFFLINE.getCode());  //更改用户登录状态值
         return ServerResponse.createBySuccess();
@@ -87,6 +89,7 @@ public class UserServiceImpl implements IUserService {
      * @param password
      * @return
      */
+    @Override
     public ServerResponse regist(String username, String password) {
         ServerResponse validResponse = checkValid(username);
         if (!validResponse.isSuccess()) {
@@ -112,6 +115,7 @@ public class UserServiceImpl implements IUserService {
      * @param username
      * @return
      */
+    @Override
     public ServerResponse checkValid(String username) {
         if (username != null) {
             //用户名不为空，判断是否存在
@@ -133,6 +137,7 @@ public class UserServiceImpl implements IUserService {
      * @param user
      * @return
      */
+    @Override
     public ServerResponse updateUserInfomation(User user) {
         //不能更新密码，更新密码有特殊逻辑
         User updateUser = new User();
@@ -151,6 +156,7 @@ public class UserServiceImpl implements IUserService {
      * @param user
      * @return
      */
+    @Override
     public ServerResponse addUser(User user) {
         ServerResponse validResponse = checkValid(user.getUserAccount());
         if (!validResponse.isSuccess()) {
@@ -173,6 +179,7 @@ public class UserServiceImpl implements IUserService {
      * @param
      * @return
      */
+    @Override
     public ServerResponse deleteUser(String userId) {
         ServerResponse validResponse = checkValid(userId);
 

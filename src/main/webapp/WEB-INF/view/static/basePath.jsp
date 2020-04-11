@@ -12,6 +12,6 @@
      * 根据需要更换basePath注释行，线上环境用第一个，本地环境用第二个
      */
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://"+"47.101.181.184"+path+"/";
-//    String basePath = request.getScheme()+"://"+"localhost:8080"+path+"/";
+//    String basePath = request.getScheme()+"://"+"47.101.181.184"+path+"/";
+    String basePath = request.getScheme()+"://"+"localhost:8080"+path+"/";
 %>

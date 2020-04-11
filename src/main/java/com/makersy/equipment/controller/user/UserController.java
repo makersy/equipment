@@ -118,7 +118,7 @@ public class UserController {
             //注册成功，当前页面弹框提示，并重定向至登录页面
 
             try {
-//                httpServletResponse.sendRedirect(request.getContextPath() + "/index.jsp");
+    //                httpServletResponse.sendRedirect(request.getContextPath() + "/index.jsp");
                 request.setAttribute("flag", 1);
                 request.getRequestDispatcher(Const.BASEPATH + "/user/userRegist.jsp").forward(request, httpServletResponse);
                 return;
