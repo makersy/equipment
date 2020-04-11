@@ -42,8 +42,9 @@ public class MonitorController {
         HttpHeaders headers = new HttpHeaders();
         RestTemplate template = new RestTemplate();
 
-        ResponseEntity<String> response = template.exchange(url, HttpMethod.GET, new HttpEntity<String>(headers), String.class, params);
+//        ResponseEntity<String> response = template.exchange(url, HttpMethod.GET, new HttpEntity<String>(headers), String.class, params);
 
+        ResponseEntity<String> response = template.getForEntity(url, String.class, params);
         return response.getBody();
     }
 }
