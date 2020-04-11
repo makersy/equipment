@@ -45,6 +45,7 @@
             <!--此处拦截/manage下请求及其子请求-->
             <mvc:mapping path="/manage/**"/>
             <mvc:mapping path="/user/**"/>
+            <mvc:exclude-mapping path="/lbs.do" />
             <!--防止login方法也被拦截器拦下-->
             <!--<mvc:exclude-mapping path="/manage/user/login.do" />-->
             <bean class="com.makersy.equipment.common.interceptor.AuthorityInterceptor" />
