@@ -25,13 +25,16 @@ public class MonitorController {
 
     @RequestMapping("/lbs.do")
     @ResponseBody
-    public String forwardToLBSApi(@Param("ie") String ie, @Param("wd") String wd) {
+    public String forwardToLBSApi(@Param("lac") String lac, @Param("ci") String ci) {
 
-        String url = "http://www.baidu.com/s";
+        String url = "http://api.cellocation.com:81/cell/";
         Map<String, String> params = new HashMap<>();
 
-        params.put("ie", ie);
-        params.put("wd", wd);
+        params.put("mcc", "460");
+        params.put("mnc", "1");
+
+        params.put("lac", lac);
+        params.put("ci", ci);
 
         HttpHeaders headers = new HttpHeaders();
         RestTemplate template = new RestTemplate();
