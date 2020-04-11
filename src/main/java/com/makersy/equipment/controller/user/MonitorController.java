@@ -27,24 +27,34 @@ public class MonitorController {
     @ResponseBody
     public String forwardToLBSApi(@Param("mcc") String mcc, @Param("mnc") String mnc, @Param("lac") String lac, @Param("ci") String ci) {
 
-        String url = "http://api.cellocation.com:81/cell/";
-        Map<String, String> params = new HashMap<>();
+        String baseURL = "http://api.cellocation.com:81/cell/";
+//        Map<String, String> params = new HashMap<>();
 
-        params.put("mcc", mcc);
-        params.put("mnc", mnc);
+        StringBuilder sb = new StringBuilder(baseURL);
 
-        params.put("lac", lac);
-        params.put("ci", ci);
-        params.put("output", "json");
+        sb.append("?mcc=").append(mcc)
+                .append("&mnc=").append(mnc)
+                .append("&lac=").append(lac)
+                .append("&ci=").append(ci)
+                .append("&output=json");
 
-        log.info(params.toString());
+//        params.put("mcc", mcc);
+//        params.put("mnc", mnc);
+//
+//        params.put("lac", lac);
+//        params.put("ci", ci);
+//        params.put("output", "json");
 
-        HttpHeaders headers = new HttpHeaders();
+        String url = sb.toString();
+        log.info(url);
+
+//        HttpHeaders headers = new HttpHeaders();
         RestTemplate template = new RestTemplate();
 
 //        ResponseEntity<String> response = template.exchange(url, HttpMethod.GET, new HttpEntity<String>(headers), String.class, params);
 
-        ResponseEntity<String> response = template.getForEntity(url, String.class, params);
+
+        ResponseEntity<String> response = template.getForEntity(url, String.class);
         return response.getBody();
     }
 }
